@@ -1,0 +1,26 @@
+contenta_enhancements.api:
+  path: '/admin/api'
+  defaults:
+    _title: 'OpenAPI Documentation'
+    _controller: '\Drupal\openapi\Controller\OpenApiUiController::generate'
+    openapi_ui: redoc
+    openapi_generator: jsonapi
+  methods:
+  - GET
+  requirements:
+    _permission: 'access openapi api docs'
+    _module_dependencies: 'openapi_ui'
+  options:
+    parameters:
+      openapi_ui:
+        type: openapi_ui
+      openapi_generator:
+        type: openapi_generator
+
+contenta_enhancements.revert:
+  path: '/admin/contenta/revert'
+  defaults:
+    _form: 'Drupal\contenta_enhancements\Form\RevertForm'
+    _title: 'Revert'
+  requirements:
+    _permission: 'administer site configuration'

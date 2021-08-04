@@ -1,0 +1,18 @@
+services:
+  plugin.manager.jsonrpc_method:
+    parent: default_plugin_manager
+    class: Drupal\jsonrpc\Plugin\JsonRpcMethodManager
+    public: false
+
+  jsonrpc.handler:
+    class: Drupal\jsonrpc\Handler
+    arguments: ['@plugin.manager.jsonrpc_method', '@renderer']
+
+  jsonrpc.schema_validator:
+    class: JsonSchema\Validator
+
+  jsonrpc.options_request_listener:
+    decorates: options_request_listener
+    public: false
+    class: \Drupal\jsonrpc\Routing\JsonRpcOptionsRequestSubscriber
+    arguments: [ '@router.route_provider', '@jsonrpc.options_request_listener.inner' ]

@@ -1,0 +1,10 @@
+name: JSON-RPC 2.0
+type: module
+description: Infrastructure for JSON-RPC 2.0 compliant web services.
+core_version_requirement: ^8 || ^9
+package: Web services
+
+# Information added by Drupal.org packaging script on 2021-06-04
+version: '2.0.5'
+project: 'jsonrpc'
+datestamp: 1622808693
